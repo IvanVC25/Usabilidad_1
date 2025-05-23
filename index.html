@@ -1,252 +1,11 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>Inicio - Ayuda Rápida</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
-    <style>
-        :root {
-            --primary-color: #4CAF50;
-            --hover-color: #45a049;
-            --bg-color: #f9f9f9;
-            --text-color: #333;
-            --padding-mobile: 1rem;
-            --padding-desktop: 2rem;
-            --nav-height: 60px;
-        }
-
-        body {
-            margin: 0;
-            font-family: Arial, sans-serif;
-            line-height: 1.6;
-            color: var(--text-color);
-            background-color: var(--bg-color);
-        }
-
-        nav {
-            background-color: white;
-            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
-            padding: var(--padding-mobile);
-            position: sticky;
-            top: 0;
-            z-index: 1000;
-        }
-
-        .nav-container {
-            max-width: 1200px;
-            margin: 0 auto;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            height: var(--nav-height);
-        }
-
-        @media (min-width: 768px) {
-            .hamburger {
-                display: none;
-            }
-
-            .nav-links {
-                position: static;
-                display: flex;
-                flex-direction: row;
-                transform: none;
-                box-shadow: none;
-                width: auto;
-                gap: 2rem;
-            }
-
-            .nav-links a {
-                border-bottom: none;
-                border-radius: 4px;
-                padding: 0.5rem 1rem;
-            }
-
-            nav {
-                padding: var(--padding-desktop);
-            }
-        }
-
-        .nav-links {
-            display: none;
-            position: fixed;
-            top: var(--nav-height);
-            left: 0;
-            right: 0;
-            background: white;
-            flex-direction: column;
-            gap: 0;
-            width: 100%;
-            text-align: left;
-            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
-            transform: translateY(-100%);
-            transition: transform 0.3s ease;
-        }
-
-        .nav-links.active {
-            display: flex;
-            transform: translateY(0);
-        }
-
-        @media (min-width: 768px) {
-            .nav-links {
-                flex-direction: row;
-                gap: 2rem;
-                width: auto;
-            }
-        }
-
-        .nav-links a {
-            text-decoration: none;
-            color: var(--text-color);
-            font-weight: 500;
-            padding: 1rem;
-            transition: all 0.3s ease;
-            border-bottom: 1px solid #eee;
-        }
-
-        .hamburger {
-            display: block;
-            cursor: pointer;
-            padding: 0.5rem;
-        }
-
-        .hamburger-line {
-            display: block;
-            width: 24px;
-            height: 2px;
-            background: var(--text-color);
-            margin: 5px 0;
-            transition: transform 0.3s ease;
-        }
-
-        .hamburger.active .hamburger-line:nth-child(1) {
-            transform: rotate(45deg) translate(5px, 5px);
-        }
-
-        .hamburger.active .hamburger-line:nth-child(2) {
-            opacity: 0;
-        }
-
-        .hamburger.active .hamburger-line:nth-child(3) {
-            transform: rotate(-45deg) translate(7px, -7px);
-        }
-
-        .nav-links a:hover {
-            background-color: #f0f0f0;
-        }
-
-        .support-btn {
-            background-color: var(--primary-color);
-            color: white !important;
-            padding: 0.5rem 1.5rem !important;
-        }
-
-        .support-btn:hover {
-            background-color: var(--hover-color) !important;
-        }
-
-        .container {
-            max-width: 1200px;
-            margin: 1rem auto;
-            padding: 0 var(--padding-mobile);
-        }
-
-        @media (min-width: 768px) {
-            .container {
-                margin: 2rem auto;
-                padding: 0 var(--padding-desktop);
-            }
-        }
-
-        .hero {
-            text-align: center;
-            padding: 2rem var(--padding-mobile);
-            background: linear-gradient(rgba(76, 175, 80, 0.1), rgba(76, 175, 80, 0.2));
-            border-radius: 8px;
-            margin-bottom: 2rem;
-        }
-
-        @media (min-width: 768px) {
-            .hero {
-                padding: 3rem var(--padding-desktop);
-                margin-bottom: 3rem;
-            }
-        }
-
-        .hero h1 {
-            color: var(--primary-color);
-            font-size: 2.5rem;
-            margin-bottom: 1rem;
-        }
-
-        .cards-container {
-            display: grid;
-            grid-template-columns: 1fr;
-            gap: 1.5rem;
-            padding: var(--padding-mobile);
-        }
-
-        @media (min-width: 640px) {
-            .cards-container {
-                grid-template-columns: repeat(2, 1fr);
-            }
-        }
-
-        @media (min-width: 1024px) {
-            .cards-container {
-                grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-                gap: 2rem;
-                padding: var(--padding-desktop);
-            }
-        }
-
-        .card {
-            background: white;
-            border-radius: 8px;
-            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
-            overflow: hidden;
-            transition: transform 0.3s ease;
-        }
-
-        .card:hover {
-            transform: translateY(-5px);
-        }
-
-        .card-image {
-            height: 200px;
-            background-size: cover;
-            background-position: center;
-        }
-
-        .card-content {
-            padding: 1.5rem;
-        }
-
-        .card h3 {
-            color: var(--primary-color);
-            margin-top: 0;
-        }
-
-        .card-icon {
-            font-size: 2rem;
-            color: var(--primary-color);
-            margin-bottom: 1rem;
-        }
-
-        .learn-more {
-            display: inline-block;
-            margin-top: 1rem;
-            color: var(--primary-color);
-            text-decoration: none;
-            font-weight: bold;
-        }
-
-        .learn-more:hover {
-            text-decoration: underline;
-        }
-    </style>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" />
+    <link rel="stylesheet" href="estilos.css" />
 </head>
 <body>
     <nav>
@@ -261,60 +20,58 @@
                 <a href="index.html" class="support-btn"><i class="fas fa-home form-icon"></i>Inicio</a>
                 <a href="#"><i class="fas fa-box form-icon"></i>Productos</a>
                 <a href="soporte.html"><i class="fas fa-headset form-icon"></i>Soporte</a>
-                <a href="#"><i class="fas fa-envelope form-icon"></i>Contacto</a>
             </div>
         </div>
     </nav>
 
-    <div class="container">
-        <div class="hero">
-            <h1><i class="fas fa-leaf"></i> Cuidemos Nuestro Planeta</h1>
-            <p>Descubre cómo pequeñas acciones pueden generar grandes cambios para nuestro medio ambiente</p>
+    <div class="hero">
+        <h1><i class="fas fa-leaf"></i> Cuidemos Nuestro Planeta</h1>
+        <p>Descubre cómo pequeñas acciones pueden generar grandes cambios para nuestro medio ambiente</p>
+      </div>
+      
+      <div class="cards-container">
+        <div class="card">
+          <img src="https://images.unsplash.com/photo-1542601906990-b4d3fb778b09?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=60" alt="Reciclaje" class="card-image" />
+          <div class="card-content">
+            <i class="fas fa-recycle card-icon"></i>
+            <h3>Reciclaje</h3>
+            <p>Aprende a separar correctamente los residuos y contribuye a la reducción de la contaminación. El reciclaje es clave para un futuro sostenible.</p>
+            <a href="#" class="read-more">Leer más <i class="fas fa-arrow-right"></i></a>
+          </div>
         </div>
-
-        <div class="cards-container">
-            <div class="card">
-                <div class="card-image" style="background-image: url('https://images.unsplash.com/photo-1542601906990-b4d3fb778b09?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=60');"></div>
-                <div class="card-content">
-                    <i class="fas fa-recycle card-icon"></i>
-                    <h3>Reciclaje</h3>
-                    <p>Aprende a separar correctamente los residuos y contribuye a la reducción de la contaminación. El reciclaje es clave para un futuro sostenible.</p>
-                    <a href="#" class="learn-more">Leer más <i class="fas fa-arrow-right"></i></a>
-                </div>
-            </div>
-
-            <div class="card">
-                <div class="card-image" style="background-image: url('https://images.unsplash.com/photo-1497435334941-8c899ee9e8e9?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=60');"></div>
-                <div class="card-content">
-                    <i class="fas fa-tint card-icon"></i>
-                    <h3>Ahorro de Agua</h3>
-                    <p>Descubre consejos prácticos para reducir el consumo de agua en tu hogar y ayudar a preservar este valioso recurso natural.</p>
-                    <a href="#" class="learn-more">Leer más <i class="fas fa-arrow-right"></i></a>
-                </div>
-            </div>
-
-            <div class="card">
-                <div class="card-image" style="background-image: url('https://images.unsplash.com/photo-1473341304170-971dccb5ac1e?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=60');"></div>
-                <div class="card-content">
-                    <i class="fas fa-lightbulb card-icon"></i>
-                    <h3>Energía Limpia</h3>
-                    <p>Explora las diferentes formas de energía renovable y cómo puedes implementarlas en tu vida diaria para reducir tu huella de carbono.</p>
-                    <a href="#" class="learn-more">Leer más <i class="fas fa-arrow-right"></i></a>
-                </div>
-            </div>
-
-            <div class="card">
-                <div class="card-image" style="background-image: url('https://images.unsplash.com/photo-1518531933037-91b2f5f229cc?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=60');"></div>
-                <div class="card-content">
-                    <i class="fas fa-seedling card-icon"></i>
-                    <h3>Huertos Urbanos</h3>
-                    <p>Aprende a crear tu propio huerto en casa y contribuye a la sostenibilidad alimentaria mientras reduces tu impacto ambiental.</p>
-                    <a href="#" class="learn-more">Leer más <i class="fas fa-arrow-right"></i></a>
-                </div>
-            </div>
+      
+        <div class="card">
+          <img src="https://images.unsplash.com/photo-1497435334941-8c899ee9e8e9?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=60" alt="Ahorro de Agua" class="card-image" />
+          <div class="card-content">
+            <i class="fas fa-tint card-icon"></i>
+            <h3>Ahorro de Agua</h3>
+            <p>Descubre consejos prácticos para reducir el consumo de agua en tu hogar y ayudar a preservar este valioso recurso natural.</p>
+            <a href="#" class="read-more">Leer más <i class="fas fa-arrow-right"></i></a>
+          </div>
         </div>
+      
+        <div class="card">
+          <img src="https://images.unsplash.com/photo-1473341304170-971dccb5ac1e?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=60" alt="Energía Limpia" class="card-image" />
+          <div class="card-content">
+            <i class="fas fa-lightbulb card-icon"></i>
+            <h3>Energía Limpia</h3>
+            <p>Explora las diferentes formas de energía renovable y cómo puedes implementarlas en tu vida diaria para reducir tu huella de carbono.</p>
+            <a href="#" class="read-more">Leer más <i class="fas fa-arrow-right"></i></a>
+          </div>
+        </div>
+      
+        <div class="card">
+          <img src="https://images.unsplash.com/photo-1518531933037-91b2f5f229cc?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=60" alt="Huertos Urbanos" class="card-image" />
+          <div class="card-content">
+            <i class="fas fa-seedling card-icon"></i>
+            <h3>Huertos Urbanos</h3>
+            <p>Aprende a crear tu propio huerto en casa y contribuye a la sostenibilidad alimentaria mientras reduces tu impacto ambiental.</p>
+            <a href="#" class="read-more">Leer más <i class="fas fa-arrow-right"></i></a>
+          </div>
+        </div>
+      </div>
     </div>
-</body>
+
     <script>
         const hamburger = document.querySelector('.hamburger');
         const navLinks = document.querySelector('.nav-links');
@@ -324,7 +81,6 @@
             navLinks.classList.toggle('active');
         });
 
-        // Cerrar menú al hacer clic en un enlace
         document.querySelectorAll('.nav-links a').forEach(link => {
             link.addEventListener('click', () => {
                 hamburger.classList.remove('active');
@@ -332,4 +88,8 @@
             });
         });
     </script>
+</body>
 </html>
+
+
+
